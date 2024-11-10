@@ -1,0 +1,31 @@
+CREATE TABLE `job` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `description` varchar(255) DEFAULT NULL,
+  `employer_id` int DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `salary` double DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+CREATE TABLE `job_application` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `employee_id` int DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `job_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKdepcvxeq3gyb4438ws0qjycc7` (`job_id`),
+  CONSTRAINT `FKdepcvxeq3gyb4438ws0qjycc7` FOREIGN KEY (`job_id`) REFERENCES `job` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE `our_users` (
+  `id` int NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `role` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
